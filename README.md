@@ -2,10 +2,10 @@
 
 # Basic Plan:
 
-1 Get covid 19 data from the NYT API 
-2 Process the data
+1 Get covid 19 data from the NYT API <br />
+2 Process the data <br />
 - Might need to have an express server to do this API calls and process the data
-- Probably do not want to do this all on the front end. 
+- Probably do not want to do this all on the front end. <br />
 3 Once the data is retrived from the API plot the data using a chart library. 
 - For now we will use Chart.js 
 
@@ -20,6 +20,6 @@ Going to build with node.js
 
 
 # TODOS
-Create-react-app
-Bring in bootstrap for styling 
-Make the api calls work 
+Create-react-app <br />
+Bring in bootstrap for styling <br />
+Make the api calls work <br />
