@@ -12,11 +12,11 @@ app.use(express.json());
 app.get("/data", async (req, res) => {
   try {
     const response = await axios.get(
-      "https://corona.lmao.ninja/v2/historical/usacounties/texas?lastdays=30"
+      "https://corona.lmao.ninja/v2/historical/usacounties/texas?lastdays=90"
     );
 
 
-    const filterRes = response.data.find((listItem) => listItem.county === 'bexar');
+    const filterRes = response.data.find((listItem) => listItem.county === 'travis');
 
     const { county } = filterRes
 
@@ -30,6 +30,7 @@ app.get("/data", async (req, res) => {
      * turn it in to two seperate arrays 
      * This can probably be done more effiencently. 
      */
+
 
     const dataProcessed = Object.entries(cases)
 

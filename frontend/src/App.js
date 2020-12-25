@@ -1,11 +1,11 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 import Chart from './components/Chart'
 
 function App() {
   return (
-    <div className="App">
-      <h2>Hello World</h2>
+    <div className="container-fluid" >
       <Chart />
     </div>
   );

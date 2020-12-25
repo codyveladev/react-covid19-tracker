@@ -15,9 +15,9 @@ export default function Chart() {
       axios
         .get("http://localhost:8080/data")
         .then((response) => {
+          setCounty(response.data.county);
           setNumbers(response.data.numbers);
           setDates(response.data.dates);
-          setCounty(response.data.county)
 
           console.log(dates, numbers);
         })
@@ -27,7 +27,6 @@ export default function Chart() {
 
   useEffect(() => {
       getData()
-    
   }, []);
 
   let input = {
@@ -36,9 +35,12 @@ export default function Chart() {
       {
         label: "Number of cases",
         backgroundColor: "rgb(130, 6, 12)",
-        borderColor: "rgba(0,0,0,1)",
+        borderColor: "rgb(130, 6, 12)",
+        fill: false,
         borderWidth: 2,
         data: numbers,
+        lineTension: 0.75,
+        borderWidth: 2
       },
     ],
   };
@@ -47,15 +49,15 @@ export default function Chart() {
     <Line
       data={input}
       options={{
-          title:{
+        title: {
           display: true,
-          text: `COVID-19 Cases for ${county}`,
-          fontSize: 20
-          },
-          legend: {
-              display: true,
-              position: 'right'
-          }
+          text: `COVID-19 Cases for ${county} county`,
+          fontSize: 30,
+        },
+        legend: {
+          display: true,
+          position: "bottom",
+        },
       }}
     />
   );
