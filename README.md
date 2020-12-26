@@ -20,6 +20,11 @@ Going to build with node.js
 
 
 # TODOS
-Create-react-app <br />
-Bring in bootstrap for styling <br />
-Make the api calls work <br />
+Refactor the chart code need to focus on state managment and function calls <br />
+Possibly want to create a stats class and import them in to the component <br />
+Look into hosting your own API for this project <br />
+Find out how to dynamically change the chart with a forn <br />
+- County 
+- days 
+
+
