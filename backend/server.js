@@ -9,28 +9,33 @@ const port = 8080;
 app.use(cors());
 app.use(express.json());
 
-app.get("/data", async (req, res) => {
+app.get("/county/:countyToSearch", async (req, res) => {
   try {
+    console.log(req.params.countyToSearch)
     const response = await axios.get(
-      "https://corona.lmao.ninja/v2/historical/usacounties/texas?lastdays=90"
+      `https://corona.lmao.ninja/v2/historical/usacounties/texas?lastdays=${req.query.days}`
     );
 
+    // let allCounties = response.data.map((item) => {
+    //     return item.county
+    // })
 
-    const filterRes = response.data.find((listItem) => listItem.county === 'travis');
+    // console.log(allCounties)
 
-    const { county } = filterRes
+
+    const filterRes = response.data.find((listItem) => listItem.county === `${req.params.countyToSearch}`);
+
+
+    const { county, province } = filterRes
 
     const { cases } = filterRes.timeline
-
-    // console.log(cases)
 
     /**
      * 
      * This is O(n^2) to process the api response and
-     * turn it in to two seperate arrays 
-     * This can probably be done more effiencently. 
+     * turn it in to two seperate arrays for plotting
+     * This can probably be done better. 
      */
-
 
     const dataProcessed = Object.entries(cases)
 
@@ -46,7 +51,7 @@ app.get("/data", async (req, res) => {
 
 
 
-    res.send({numbers, dates, county})
+    res.send({province, county, numbers, dates})
 
   } catch (error) {
       console.log(error)
