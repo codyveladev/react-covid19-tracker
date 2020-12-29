@@ -14,7 +14,7 @@ export default function Chart() {
 
   const getData = () => {
       axios
-        .get("http://localhost:8080/county/harris?days=60")
+        .get("http://localhost:8080/county/comal?days=30")
         .then((response) => {
           setCounty(response.data.county);
           setNumbers(response.data.numbers);
@@ -27,9 +27,8 @@ export default function Chart() {
 
   }
   const getPercentDiff = (numbers) => {
-      console.log(numbers)
       let diff = ((numbers[numbers.length - 1] - numbers[0]) / Math.abs(numbers[0]))
-      setPercentIncrease((diff * 100).toPrecision(2))
+      setPercentIncrease((diff * 100).toFixed(2))
   }
 
   useEffect(() => {
@@ -50,7 +49,6 @@ export default function Chart() {
         borderWidth: 2,
         data: numbers,
         lineTension: 0.75,
-        borderWidth: 2
       },
     ],
   };
@@ -58,12 +56,14 @@ export default function Chart() {
   return (
     <div>
       <Line
+        height={150}
         data={input}
         options={{
           title: {
             display: true,
             text: `COVID-19 Cases for ${county} county`,
             fontSize: 30,
+            fontColor: 'black'
           },
           legend: {
             display: true,

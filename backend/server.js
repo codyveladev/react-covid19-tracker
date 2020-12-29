@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const axios = require("axios");
-const { response } = require("express");
+const fs = require('fs')
 
 const port = 8080;
 
@@ -20,7 +20,7 @@ app.get("/county/:countyToSearch", async (req, res) => {
     //     return item.county
     // })
 
-    // console.log(allCounties)
+    // fs.writeFileSync('./countries.json', JSON.stringify(allCounties))
 
 
     const filterRes = response.data.find((listItem) => listItem.county === `${req.params.countyToSearch}`);
