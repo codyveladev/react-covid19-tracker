@@ -26,7 +26,7 @@ export default function Chart({numbers, dates, county}) {
         options={{
           title: {
             display: true,
-            text: `COVID-19 Cases for ${county} county`,
+            text: `Total COVID-19 Cases for ${county} county`,
             fontSize: 30,
             fontColor: 'black'
           },

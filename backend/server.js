@@ -16,7 +16,11 @@ app.get("/county/:countyToSearch", async (req, res) => {
     const response = await axios.get(
       `https://corona.lmao.ninja/v2/historical/usacounties/texas?lastdays=${req.query.days}`
     );
+
+
     const filterRes = response.data.find((listItem) => listItem.county === `${req.params.countyToSearch}`);
+
+    console.log(filterRes)
 
 
     const { county } = filterRes

@@ -7,9 +7,9 @@ import { Container } from 'react-bootstrap';
 
 function App() {
   return (
-    <div className="container-fluid bg-light h-100 border pb-4">
+    <div className="container-fluid bg-light h-100 border pb-5">
       <Container
-        className="pt-5"
+        className="pt-3"
       >
         <FormField />
       </Container>
