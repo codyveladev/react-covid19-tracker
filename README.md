@@ -11,7 +11,7 @@
 
 
 # Resources 
-API: https://corona.lmao.ninja/docs/#/COVID-19%3A%20NYT
+API: https://documenter.getpostman.com/view/11144369/Szf6Z9B3?version=latest#6b6045c7-ee07-40a8-a733-f3bc077beda9
 
 CHART: https://www.chartjs.org/
 
@@ -20,11 +20,9 @@ Going to build with node.js
 
 
 # TODOS
-Refactor the chart code need to focus on state managment and function calls <br />
-Possibly want to create a stats class and import them in to the component <br />
-Look into hosting your own API for this project <br />
-Find out how to dynamically change the chart with a forn <br />
-- County 
-- days 
+Refactor the server side code --> more specifically splitting the numbers and dates array <br />
+Refactor the state in the form component looks pretty sloppy<br />
+Refactor the component too, might need to remane the form component and let it just be the main component. Or try to split the form into its own component. <br />
+Fix the styling of the stats display component. <br />
 
 

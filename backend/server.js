@@ -9,26 +9,26 @@ const port = 8080;
 app.use(cors());
 app.use(express.json());
 
+
 app.get("/county/:countyToSearch", async (req, res) => {
   try {
     console.log(req.params.countyToSearch)
     const response = await axios.get(
       `https://corona.lmao.ninja/v2/historical/usacounties/texas?lastdays=${req.query.days}`
     );
-
-    // let allCounties = response.data.map((item) => {
-    //     return item.county
-    // })
-
-    // fs.writeFileSync('./countries.json', JSON.stringify(allCounties))
-
-
     const filterRes = response.data.find((listItem) => listItem.county === `${req.params.countyToSearch}`);
 
 
-    const { county, province } = filterRes
+    const { county } = filterRes
 
     const { cases } = filterRes.timeline
+
+    const stats = await axios.get(
+      `https://corona.lmao.ninja/v2/states/texas?yesterday=true`
+    );
+
+    const {deaths, tests}  = stats.data
+  
 
     /**
      * 
@@ -47,11 +47,7 @@ app.get("/county/:countyToSearch", async (req, res) => {
       return entry[1];
     });
 
-    console.log('im being called!')
-
-
-
-    res.send({province, county, numbers, dates})
+    res.send({county, numbers, dates, deaths, tests})
 
   } catch (error) {
       console.log(error)
