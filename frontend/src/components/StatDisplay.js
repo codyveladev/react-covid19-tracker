@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {Card, Container, Col, Row} from 'react-bootstrap'
+import {Card, Col, Row} from 'react-bootstrap'
 
 export default function StatDisplay(props) {
     const getPercentIncrease = (arr) => {
@@ -10,14 +10,8 @@ export default function StatDisplay(props) {
         return percentIncrease.toFixed(2)
 
     }
-
-    const getDailyAverage = (arr) => {
-       let sum = arr.reduce((a, b) => a + b, 0);
-       let avg = (sum / arr.length) 
-
-       return avg.toFixed(0)
         
-    }
+    
     return (
       <>
         <Row className="mt-3">

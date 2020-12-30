@@ -1,9 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Line } from "react-chartjs-2";
-
-
-const axios = require("axios");
-
 
 export default function Chart({numbers, dates, county}) {
 
