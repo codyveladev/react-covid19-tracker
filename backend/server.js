@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const axios = require("axios");
-const fs = require('fs')
+
 
 const port = 8080;
 
