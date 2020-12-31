@@ -42,6 +42,7 @@ CHART: https://www.chartjs.org/
 ---
 
 # TODOS
+- Conditional render the inital page on load up to not show default values. 
 - Split the stat display component up into 3 parts. <br />
 - Possibly make this work for multiple states <br />
 
