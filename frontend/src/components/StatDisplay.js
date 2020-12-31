@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Context } from "../Store";
 import { Card, Col, Row } from "react-bootstrap";
 
-export default function StatDisplay(props) {
+export default function StatDisplay() {
   const [state] = useContext(Context);
   const getPercentIncrease = (arr) => {
     let percentIncrease =

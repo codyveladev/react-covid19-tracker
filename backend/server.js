@@ -12,35 +12,40 @@ app.use(express.json());
 
 app.get("/county/:countyToSearch", async (req, res) => {
   try {
-    console.log(req.params.countyToSearch)
+   
     const response = await axios.get(
       `https://corona.lmao.ninja/v2/historical/usacounties/texas?lastdays=${req.query.days}`
     );
 
-
-    const filterRes = response.data.find((listItem) => listItem.county === `${req.params.countyToSearch}`);
-
-    console.log(filterRes.timeline.deaths);
-
+    //Filter based on county
+    const filterRes = response.data.find(
+      (listItem) => listItem.county === `${req.params.countyToSearch}`
+    );
+    //Get the county back
     const { county } = filterRes;
 
+    //Get the dates from the time line object (which is the key value)
     const dates = Object.keys(filterRes.timeline.cases);
 
+    //Get the numbers (cases) from the time line object
     const numbers = Object.values(filterRes.timeline.cases);
-    
-    const deaths = Object.values(filterRes.timeline.deaths);
-    
 
+    //Get the numbers (cases) from the time line object
+    const deaths = Object.values(filterRes.timeline.deaths);
+
+
+    //This call is to get the total tested and death toll
     const stats = await axios.get(
       `https://corona.lmao.ninja/v2/states/texas?yesterday=true`
     );
 
-    const { tests }  = stats.data
-    const deathToll = stats.data.deaths
+    //Parse the results from the second api call
+    const { tests } = stats.data;
+    const deathToll = stats.data.deaths;
+
+    //Send back the data to the front end. 
+    res.send({ county, numbers, dates, deaths, tests, deathToll });
   
-
-    res.send({county, numbers, dates, deaths, tests, deathToll})
-
   } catch (error) {
       console.log(error)
   }
