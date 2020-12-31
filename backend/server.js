@@ -30,7 +30,7 @@ app.get("/county/:countyToSearch", async (req, res) => {
     //Get the numbers (cases) from the time line object
     const numbers = Object.values(filterRes.timeline.cases);
 
-    //Get the numbers (cases) from the time line object
+    //Get the deaths from the time line object
     const deaths = Object.values(filterRes.timeline.deaths);
 
 
