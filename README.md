@@ -10,6 +10,7 @@ DATA FROM:
 - NYT(Data from New York Times)
 
 API Calls used: (Following documentation is from the postman link above)
+
 GET County Data
 https://corona.lmao.ninja/v2/nyt/counties?county=
 Return all NYT county data or individual county data if specified. Each entry returned represents data for a given day.
@@ -35,8 +36,8 @@ CHART: https://www.chartjs.org/
 ---
 
 # Development Commands
-- npm i: install project dependencies
-- npm run dev: will run the front end and the back end concurrently. 
+- `npm i`: install project dependencies
+- `npm run dev`: will run the front end and the back end concurrently. 
 
 ---
 
