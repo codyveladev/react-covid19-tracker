@@ -34,8 +34,8 @@ CHART: https://www.chartjs.org/
 ---
 
 # Development Commands
-npm i: install project dependencies
-npm run dev: will run the front end and the back end concurrently. 
+- npm i: install project dependencies
+- npm run dev: will run the front end and the back end concurrently. 
 
 ---
 
