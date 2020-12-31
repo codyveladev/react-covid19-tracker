@@ -7,7 +7,7 @@ export default function Chart() {
   const [state, setState] = useContext(Context)
 
   let input = {
-    labels: state.dates, // props.dates
+    labels: state.dates, 
     datasets: [
       {
         label: "Number of cases",
@@ -15,7 +15,7 @@ export default function Chart() {
         borderColor: "rgb(130, 6, 12)",
         fill: false,
         borderWidth: 2,
-        data: state.numbers, // props.numbers
+        data: state.numbers, 
         lineTension: 0.75,
       },
       {
@@ -24,7 +24,7 @@ export default function Chart() {
         borderColor: "rgb(0,0,0)",
         fill: false,
         borderWidth: 2,
-        data: state.deaths, // props.numbers
+        data: state.deaths,
         lineTension: 0.75,
       },
     ],

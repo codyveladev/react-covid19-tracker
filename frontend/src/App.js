@@ -1,12 +1,13 @@
-import "./App.css";
+//Styling
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
 
+//Components
 import Store from "./Store";
-import Chart from "./components/Chart"
-import StatDisplay from "./components/StatDisplay"
+import Chart from "./components/Chart";
+import StatDisplay from "./components/StatDisplay";
 import FormField from "./components/Form";
 import { Container } from "react-bootstrap";
+
 
 function App() {
   return (
