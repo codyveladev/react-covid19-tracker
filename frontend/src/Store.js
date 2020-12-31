@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 
 
 const initialState = {
-    numbers,
-    dates,
-    resCounty, 
-    deaths, 
-    deathToll,
-    tests,
+    numbers: [],
+    dates: [],
+    county: '', 
+    deaths: [], 
+    deathToll: 0,
+    tests: 0,
 }
 
 export const Context = React.createContext();

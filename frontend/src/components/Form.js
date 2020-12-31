@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
-import Chart from "./Chart";
 import { Context } from '../Store'
-import StatDisplay from "./StatDisplay";
 const countries = require("../countries.json");
 
 const axios = require("axios");
@@ -26,13 +24,7 @@ export default function FormField() {
     axios
       .get(`http://localhost:8080/county/${county}?days=${days}`)
       .then((response) => {
-        setNumbers(response.data.numbers);
-        setDates(response.data.dates);
-        setResCounty(response.data.county);
-        setDeaths(response.data.deaths)
-
-        setDeathToll(response.data.deathTotal);
-        setTests(response.data.tests);
+        setState(response.data)
 
         const duration = performance.now() - startTime;
         console.log(`someMethodIThinkMightBeSlow took ${duration}ms`);
@@ -114,15 +106,6 @@ export default function FormField() {
           </Button>
         </Row>
       </Form>
-      <div className="container bg-white border mt-3 p-3">
-        <Chart numbers={numbers} deaths={deaths} dates={dates} county={resCounty} />
-      </div>
-      <StatDisplay
-        numbers={numbers}
-        dates={dates}
-        tests={tests}
-        deathToll={deathToll}
-      />
     </>
   );
 }

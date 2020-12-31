@@ -1,20 +1,27 @@
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './App.css'
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
-import Store from './Store'
-
-import FormField from './components/Form'
-import { Container } from 'react-bootstrap';
+import Store from "./Store";
+import Chart from "./components/Chart"
+import StatDisplay from "./components/StatDisplay"
+import FormField from "./components/Form";
+import { Container } from "react-bootstrap";
 
 function App() {
   return (
     <Store>
-      <div className="container-fluid bg-light h-100 border pb-5">
+      <Container fluid className="bg-light h-100 border pb-5">
         <Container className="pt-3">
           <FormField />
         </Container>
-      </div>
+        <Container className="bg-white border mt-3 p-3">
+          <Chart />
+        </Container>
+        <Container className="border mt-3 p-3">
+          <StatDisplay />
+        </Container>
+      </Container>
     </Store>
   );
 }

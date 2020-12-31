@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../Store";
 import { Line } from "react-chartjs-2";
 
-export default function Chart({numbers, dates, county, deaths}) {
+export default function Chart() {
+
+  const [state, setState] = useContext(Context)
 
   let input = {
-    labels: dates, // props.dates
+    labels: state.dates, // props.dates
     datasets: [
       {
         label: "Number of cases",
@@ -12,7 +15,7 @@ export default function Chart({numbers, dates, county, deaths}) {
         borderColor: "rgb(130, 6, 12)",
         fill: false,
         borderWidth: 2,
-        data: numbers, // props.numbers
+        data: state.numbers, // props.numbers
         lineTension: 0.75,
       },
       {
@@ -21,7 +24,7 @@ export default function Chart({numbers, dates, county, deaths}) {
         borderColor: "rgb(0,0,0)",
         fill: false,
         borderWidth: 2,
-        data: deaths, // props.numbers
+        data: state.deaths, // props.numbers
         lineTension: 0.75,
       },
     ],
@@ -35,7 +38,7 @@ export default function Chart({numbers, dates, county, deaths}) {
         options={{
           title: {
             display: true,
-            text: `Total COVID-19 Cases for ${county} county`,
+            text: `Total COVID-19 Cases for ${state.county} county`,
             fontSize: 30,
             fontColor: 'black'
           },

@@ -36,10 +36,10 @@ app.get("/county/:countyToSearch", async (req, res) => {
     );
 
     const { tests }  = stats.data
-    const deathTotal = stats.data.deaths
+    const deathToll = stats.data.deaths
   
 
-    res.send({county, numbers, dates, deaths, tests, deathTotal})
+    res.send({county, numbers, dates, deaths, tests, deathToll})
 
   } catch (error) {
       console.log(error)
