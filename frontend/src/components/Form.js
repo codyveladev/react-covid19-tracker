@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import Chart from "./Chart";
+import { Context } from '../Store'
 import StatDisplay from "./StatDisplay";
 const countries = require("../countries.json");
 
@@ -12,14 +13,10 @@ export default function FormField() {
   const [county, setCounty] = useState("anderson");
   const [days, setDays] = useState("30");
   const [loading, setLoading] = useState(false);
+  
+  //Context
+  const [state, setState] = useContext(Context);
 
-  //Chart State
-  const [numbers, setNumbers] = useState([]);
-  const [dates, setDates] = useState([]);
-  const [resCounty, setResCounty] = useState();
-  //Stats State
-  const [deaths, setDeaths] = useState();
-  const [tests, setTests] = useState();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,8 +29,9 @@ export default function FormField() {
         setNumbers(response.data.numbers);
         setDates(response.data.dates);
         setResCounty(response.data.county);
+        setDeaths(response.data.deaths)
 
-        setDeaths(response.data.deaths);
+        setDeathToll(response.data.deathTotal);
         setTests(response.data.tests);
 
         const duration = performance.now() - startTime;
@@ -117,13 +115,13 @@ export default function FormField() {
         </Row>
       </Form>
       <div className="container bg-white border mt-3 p-3">
-        <Chart numbers={numbers} dates={dates} county={resCounty} />
+        <Chart numbers={numbers} deaths={deaths} dates={dates} county={resCounty} />
       </div>
       <StatDisplay
         numbers={numbers}
         dates={dates}
         tests={tests}
-        deaths={deaths}
+        deathToll={deathToll}
       />
     </>
   );

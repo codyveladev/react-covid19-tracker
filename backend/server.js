@@ -20,38 +20,26 @@ app.get("/county/:countyToSearch", async (req, res) => {
 
     const filterRes = response.data.find((listItem) => listItem.county === `${req.params.countyToSearch}`);
 
-    console.log(filterRes)
+    console.log(filterRes.timeline.deaths);
 
+    const { county } = filterRes;
 
-    const { county } = filterRes
+    const dates = Object.keys(filterRes.timeline.cases);
 
-    const { cases } = filterRes.timeline
+    const numbers = Object.values(filterRes.timeline.cases);
+    
+    const deaths = Object.values(filterRes.timeline.deaths);
+    
 
     const stats = await axios.get(
       `https://corona.lmao.ninja/v2/states/texas?yesterday=true`
     );
 
-    const {deaths, tests}  = stats.data
+    const { tests }  = stats.data
+    const deathTotal = stats.data.deaths
   
 
-    /**
-     * 
-     * This is O(n^2) to process the api response and
-     * turn it in to two seperate arrays for plotting
-     * This can probably be done better. 
-     */
-
-    const dataProcessed = Object.entries(cases)
-
-    let dates = dataProcessed.map((entry) =>{
-       return entry[0]
-    })
-
-    let numbers = dataProcessed.map((entry) => {
-      return entry[1];
-    });
-
-    res.send({county, numbers, dates, deaths, tests})
+    res.send({county, numbers, dates, deaths, tests, deathTotal})
 
   } catch (error) {
       console.log(error)

@@ -55,7 +55,7 @@ export default function StatDisplay(props) {
               </Card.Header>
               <Card.Body>
                 <Card.Text className="text-center py-3">
-                  <h3>{props.deaths}</h3>
+                  <h3>{props.deathToll}</h3>
                 </Card.Text>
               </Card.Body>
             </Card>

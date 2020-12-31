@@ -1,7 +1,7 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 
-export default function Chart({numbers, dates, county}) {
+export default function Chart({numbers, dates, county, deaths}) {
 
   let input = {
     labels: dates, // props.dates
@@ -13,6 +13,15 @@ export default function Chart({numbers, dates, county}) {
         fill: false,
         borderWidth: 2,
         data: numbers, // props.numbers
+        lineTension: 0.75,
+      },
+      {
+        label: "Number of deaths",
+        backgroundColor: "rgb(0,0,0)",
+        borderColor: "rgb(0,0,0)",
+        fill: false,
+        borderWidth: 2,
+        data: deaths, // props.numbers
         lineTension: 0.75,
       },
     ],
@@ -34,7 +43,7 @@ export default function Chart({numbers, dates, county}) {
             display: true,
             position: "bottom",
           },
-        }}
+      }}
       />
     </div>
   );
