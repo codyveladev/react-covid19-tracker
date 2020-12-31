@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import { Context } from '../Store'
-const countries = require("../countries.json");
+const counties = require("../counties.json");
 
 const axios = require("axios");
 
@@ -48,7 +48,7 @@ export default function FormField() {
                 setCounty(selectedCounty);
               }}
             >
-              {countries.map((index) => {
+              {counties.map((index) => {
                 return (
                   <option
                     key={
