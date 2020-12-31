@@ -1,28 +1,47 @@
 # react-covid19-tracker
 
-# Basic Plan:
-
-1 Get covid 19 data from the NYT API <br />
-2 Process the data <br />
-- Might need to have an express server to do this API calls and process the data
-- Probably do not want to do this all on the front end. <br />
-3 Once the data is retrived from the API plot the data using a chart library. 
-- For now we will use Chart.js 
-
 
 # Resources 
 API: https://documenter.getpostman.com/view/11144369/Szf6Z9B3?version=latest#6b6045c7-ee07-40a8-a733-f3bc077beda9
+DATA FROM: 
+- JHUCSSE(Data from Johns Hopkins University)
+
+- NYT(Data from New York Times)
+
+API Calls used: (Following documentation is from the postman link above)
+1. GET County Data
+https://corona.lmao.ninja/v2/nyt/counties?county=
+Return all NYT county data or individual county data if specified. Each entry returned represents data for a given day.
+
+PARAMS
+county
+The county that you'd like to search for, separated by comma if you want to search for multiple (i.e. 'Alameda, Humboldt'). Default is full data set.
+
+2. GET Historical Data for all Counties in a Specified State
+https://corona.lmao.ninja/v2/historical/usacounties/:state?lastdays=30
+Get time series info from the JHU CSSE Data Repository. Every date since 1/22/20 has an entry tracking deaths and cases. Updated each day at 23:59 UTC. Data is updated every 10 minutes.
+
+PARAMS
+lastdays30
+number of days you want the data to go back to. Default is 30. Use all for full data set. Ex: 15, all, 24. Default value: 30
+
+PATH VARIABLES
+stateguam
+Required. A valid US state name, validated in the array returned from /v2/historical/usacounties.
 
 CHART: https://www.chartjs.org/
 
-Going to build with node.js
+---
 
+# Development Commands
+npm i: install project dependencies
+npm run dev: will run the front end and the back end concurrently. 
 
+---
 
 # TODOS
-Refactor the server side code --> more specifically splitting the numbers and dates array <br />
-Refactor the state in the form component looks pretty sloppy<br />
-Refactor the component too, might need to remane the form component and let it just be the main component. Or try to split the form into its own component. <br />
-Fix the styling of the stats display component. <br />
+- Split the stat display component up into 3 parts. <br />
+- Possibly make this work for multiple states <br />
+
 
 
