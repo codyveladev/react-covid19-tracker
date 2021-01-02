@@ -25,8 +25,8 @@ export default function StatDisplay() {
               </Card.Title>
             </Card.Header>
             <Card.Body>
-              <Card.Text className="text-center text-danger">
-                <h2>{getPercentIncrease(state.numbers)}%</h2>
+              <Card.Text className="text-center display-4 text-danger">
+                <p>{getPercentIncrease(state.numbers)}%</p>
               </Card.Text>
             </Card.Body>
           </Card>
@@ -39,8 +39,8 @@ export default function StatDisplay() {
               </Card.Title>
             </Card.Header>
             <Card.Body>
-              <Card.Text className="text-center py-3">
-                <h3>{state.tests}</h3>
+              <Card.Text className="text-center display-4 py-3">
+                <p>{state.tests}</p>
               </Card.Text>
             </Card.Body>
           </Card>
@@ -53,8 +53,8 @@ export default function StatDisplay() {
               </Card.Title>
             </Card.Header>
             <Card.Body>
-              <Card.Text className="text-center py-3">
-                <h3>{state.deathToll}</h3>
+              <Card.Text className="text-center display-4 py-3">
+                <p>{state.deathToll}</p>
               </Card.Text>
             </Card.Body>
           </Card>
